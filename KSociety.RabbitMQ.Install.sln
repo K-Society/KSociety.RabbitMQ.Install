@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6B7CAC2E-6723-497F-B1D2-500C2A6E6545}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+		README.md = README.md
+		version.json = version.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSociety.RabbitMQ.Install", "Src\KSociety.RabbitMQ.Install\KSociety.RabbitMQ.Install.csproj", "{290209B9-90ED-4470-B9DE-395356CE464E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{290209B9-90ED-4470-B9DE-395356CE464E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{290209B9-90ED-4470-B9DE-395356CE464E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{290209B9-90ED-4470-B9DE-395356CE464E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{290209B9-90ED-4470-B9DE-395356CE464E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44F72419-8E38-4E4F-AD4E-C9A7DBCAF141}
+	EndGlobalSection
+EndGlobal
