@@ -35,7 +35,7 @@ build_script:
   - appveyor.cmd
   
 after_build:
- - ps: $installSystemPath = Resolve-Path .\Src\00\KSociety.RabbitMQ.Install\KSociety.RabbitMQ.exe; $array = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$installSystemPath").FileVersion -split "\."; $env:InstallSystemVersion = $array[0] + "." + $array[1] + "." + $array[2]; Write-Host "$env:InstallSystemVersion"
+ - ps: $installSystemPath = Resolve-Path .\Src\KSociety.RabbitMQ.Install\KSociety.RabbitMQ.exe; $array = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$installSystemPath").FileVersion -split "\."; $env:InstallSystemVersion = $array[0] + "." + $array[1] + "." + $array[2]; Write-Host "$env:InstallSystemVersion"
 
 test: off
 
@@ -49,8 +49,6 @@ skip_branch_with_pr: true
 skip_tags: true
 
 artifacts:
-  - path: build\**\Release\*.nupkg
-    name: nuget
   - path: Src\KSociety.RabbitMQ.Install\KSociety.RabbitMQ.exe
     name: rabbitmqsysteminstaller
 
