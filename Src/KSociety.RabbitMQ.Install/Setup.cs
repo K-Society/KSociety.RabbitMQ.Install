@@ -9,7 +9,7 @@ namespace KSociety.RabbitMQ.Install
     {
         private const string ErlangVersion = "23.2.5";
         private const string RabbitMqVersion = "3.8.12";
-        //private const string RabbitMqSystemVersion = "1.0.10.0";
+
         private const string Product = "RabbitMQ";
         private const string Manufacturer = "K-Society";
         private static string _installSystemVersion = "1.0.0.0";
@@ -73,7 +73,7 @@ namespace KSociety.RabbitMQ.Install
                     UpgradeCode = new Guid("A81A42A6-1AA5-4EA3-A80A-4AAD40DA255C"),
                     Version = new Version(_installSystemVersion),
                     Manufacturer = "K-Society",
-                    AboutUrl = "https://github.com/K-Society",
+                    AboutUrl = "https://github.com/K-Society/KSociety.RabbitMQ.Install",
                     Variables = new[]
                     {
                         new Variable("UNINSTALLER_PATH",
