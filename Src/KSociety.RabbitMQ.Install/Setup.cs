@@ -12,13 +12,13 @@ namespace KSociety.RabbitMQ.Install
         //private const string RabbitMqSystemVersion = "1.0.10.0";
         private const string Product = "RabbitMQ";
         private const string Manufacturer = "K-Society";
-        private static string _rabbitMqSystemVersion = "1.0.0.0";
+        private static string _installSystemVersion = "1.0.0.0";
 
         public static void Main()
         {
             System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
             System.Diagnostics.FileVersionInfo fileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
-            _rabbitMqSystemVersion = fileVersionInfo.FileVersion;
+            _installSystemVersion = fileVersionInfo.FileVersion;
 
             var productMsiUninstall = BuildMsiUninstall();
             var productMsiRabbitMqConf = BuildMsiRabbitMqConf();
@@ -71,7 +71,7 @@ namespace KSociety.RabbitMQ.Install
                 )
                 {
                     UpgradeCode = new Guid("A81A42A6-1AA5-4EA3-A80A-4AAD40DA255C"),
-                    Version = new Version(_rabbitMqSystemVersion),
+                    Version = new Version(_installSystemVersion),
                     Manufacturer = "K-Society",
                     AboutUrl = "https://github.com/K-Society",
                     Variables = new[]
@@ -342,7 +342,7 @@ namespace KSociety.RabbitMQ.Install
                 new Project("RabbitMQ System RegistryX86",
                     new RegKey(registry, RegistryHive.LocalMachine, @"SOFTWARE\" + Manufacturer + @"\" + Product,
 
-                        new RegValue("Version", _rabbitMqSystemVersion)),
+                        new RegValue("Version", _installSystemVersion)),
 
                     new RemoveRegistryValue(registry, @"SOFTWARE\" + Manufacturer + @"\" + Product)
                 )
@@ -367,7 +367,7 @@ namespace KSociety.RabbitMQ.Install
                 new Project("RabbitMQ System RegistryX64",
                     new RegKey(registry, RegistryHive.LocalMachine, @"SOFTWARE\" + Manufacturer + @"\" + Product,
 
-                        new RegValue("Version", _rabbitMqSystemVersion))
+                        new RegValue("Version", _installSystemVersion))
                     {
                         Win64 = true
                     },
