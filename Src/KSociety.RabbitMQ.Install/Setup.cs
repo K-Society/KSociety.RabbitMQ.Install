@@ -9,10 +9,16 @@ namespace KSociety.RabbitMQ.Install
     {
         private const string ErlangVersion = "23.2.5";
         private const string RabbitMqVersion = "3.8.12";
-        private const string RabbitMqSystemVersion = "1.0.10.0";
+        //private const string RabbitMqSystemVersion = "1.0.10.0";
+        private const string Product = "RabbitMQ";
+        private const string Manufacturer = "K-Society";
+        private static string _rabbitMqSystemVersion = "1.0.0.0";
 
         public static void Main()
         {
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Diagnostics.FileVersionInfo fileVersionInfo = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+            _rabbitMqSystemVersion = fileVersionInfo.FileVersion;
 
             var productMsiUninstall = BuildMsiUninstall();
             var productMsiRabbitMqConf = BuildMsiRabbitMqConf();
@@ -65,17 +71,17 @@ namespace KSociety.RabbitMQ.Install
                 )
                 {
                     UpgradeCode = new Guid("A81A42A6-1AA5-4EA3-A80A-4AAD40DA255C"),
-                    Version = new Version(RabbitMqSystemVersion),
+                    Version = new Version(_rabbitMqSystemVersion),
                     Manufacturer = "K-Society",
                     AboutUrl = "https://github.com/K-Society",
                     Variables = new[]
                     {
                         new Variable("UNINSTALLER_PATH",
-                            $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\{"Package Cache"}\{"[WixBundleProviderKey]"}\{"RabbitMQ " + RabbitMqVersion + " System"}.exe")
+                            $@"{Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)}\{"Package Cache"}\{"[WixBundleProviderKey]"}\{Manufacturer + "." + Product}.exe")
                     }
                 };
 
-            bootstrapper.Build("RabbitMQ_" + RabbitMqSystemVersion + "_System.exe");
+            bootstrapper.Build(Manufacturer + "." + Product + ".exe");
 
             if (System.IO.File.Exists(productMsiUninstall)) { System.IO.File.Delete(productMsiUninstall); }
             if (System.IO.File.Exists(productMsiRabbitMqConf)) { System.IO.File.Delete(productMsiRabbitMqConf); }
@@ -334,11 +340,11 @@ namespace KSociety.RabbitMQ.Install
             var registry = new Feature("RegistryX86");
             var project =
                 new Project("RabbitMQ System RegistryX86",
-                    new RegKey(registry, RegistryHive.LocalMachine, @"SOFTWARE\K-Society\RabbitMQSystem",
+                    new RegKey(registry, RegistryHive.LocalMachine, @"SOFTWARE\" + Manufacturer + @"\" + Product,
 
-                        new RegValue("Version", RabbitMqSystemVersion)),
+                        new RegValue("Version", _rabbitMqSystemVersion)),
 
-                    new RemoveRegistryValue(registry, @"SOFTWARE\K-Society\RabbitMQSystem")
+                    new RemoveRegistryValue(registry, @"SOFTWARE\" + Manufacturer + @"\" + Product)
                 )
                 {
                     InstallScope = InstallScope.perMachine,
@@ -359,14 +365,14 @@ namespace KSociety.RabbitMQ.Install
             var registry = new Feature("RegistryX64");
             var project =
                 new Project("RabbitMQ System RegistryX64",
-                    new RegKey(registry, RegistryHive.LocalMachine, @"SOFTWARE\K-Society\RabbitMQSystem",
+                    new RegKey(registry, RegistryHive.LocalMachine, @"SOFTWARE\" + Manufacturer + @"\" + Product,
 
-                        new RegValue("Version", RabbitMqSystemVersion))
+                        new RegValue("Version", _rabbitMqSystemVersion))
                     {
                         Win64 = true
                     },
 
-                    new RemoveRegistryValue(registry, @"SOFTWARE\K-Society\RabbitMQSystem")
+                    new RemoveRegistryValue(registry, @"SOFTWARE\" + Manufacturer + @"\" + Product)
                 )
                 {
                     InstallScope = InstallScope.perMachine,

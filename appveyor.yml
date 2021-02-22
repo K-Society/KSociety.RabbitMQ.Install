@@ -32,7 +32,7 @@ build_script:
   - appveyor.cmd
   
 after_build:
- - ps: $installSystemPath = Resolve-Path .\Src\00\KSociety.RabbitMQ.Install\RabbitMQSystem.exe; $array = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$installSystemPath").FileVersion -split "\."; $env:InstallSystemVersion = $array[0] + "." + $array[1] + "." + $array[2]; Write-Host "$env:InstallSystemVersion"
+ - ps: $installSystemPath = Resolve-Path .\Src\00\KSociety.RabbitMQ.Install\KSociety.RabbitMQ.exe; $array = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$installSystemPath").FileVersion -split "\."; $env:InstallSystemVersion = $array[0] + "." + $array[1] + "." + $array[2]; Write-Host "$env:InstallSystemVersion"
 
 test: off
 
@@ -48,13 +48,13 @@ skip_tags: true
 artifacts:
   - path: build\**\Release\*.nupkg
     name: nuget
-  - path: Src\00\KSociety.RabbitMQ.Install\RabbitMQSystem.exe
+  - path: Src\KSociety.RabbitMQ.Install\KSociety.RabbitMQ.exe
     name: rabbitmqsysteminstaller
 
 deploy:
   - provider: GitHub
-    release: RabbitMQSystem $(InstallSystemVersion)
-    description: 'RabbitMQSystem $(InstallSystemVersion)'
+    release: KSociety.RabbitMQ $(InstallSystemVersion)
+    description: 'KSociety.RabbitMQ $(InstallSystemVersion)'
     auth_token:
       secure: 7XvMBiUsnXWGCogi909uIzQVH/68TW4lAipl0RN+ZAwHrlqZChxEBroMRWEcrWGM
     artifact: rabbitmqsysteminstaller
