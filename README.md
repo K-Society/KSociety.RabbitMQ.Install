@@ -1,3 +1,5 @@
+![GitHub all releases](https://img.shields.io/github/downloads/K-Society/KSociety.RabbitMq.Install/total)
+
 # KSociety.RabbitMq.Install
 
 ## Introduction
