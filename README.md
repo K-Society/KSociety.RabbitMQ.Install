@@ -1,10 +1,12 @@
-![GitHub all releases](https://img.shields.io/github/downloads/K-Society/KSociety.RabbitMq.Install/total)
+![GitHub all releases](https://img.shields.io/github/downloads/K-Society/KSociety.RabbitMQ.Install/total)
 
-# KSociety.RabbitMq.Install
+# KSociety.RabbitMQ.Install
+
+RabbitMQ installer for windows.
 
 ## Introduction
 
-This is the README file for KSociety.RabbitMq.Install. It support .Net Framework 4.6.1
+This is the README file for KSociety.RabbitMQ.Install. It support .Net Framework 4.6.1.
 
 ## License
 
