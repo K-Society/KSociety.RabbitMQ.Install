@@ -21,8 +21,7 @@ environment:
 install:
   - echo Downlaod Erlang otp
   - ps: New-Item -ItemType Directory -Path ".\Src\KSociety.RabbitMQ.Install\Files\Handle"
-  - ps: New-Item -ItemType Directory -Path ".\Src\KSociety.RabbitMQ.Install\Files\x32"
-  - ps: New-Item -ItemType Directory -Path ".\Src\KSociety.RabbitMQ.Install\Files\x64"
+  - ps: New-Item -ItemType Directory -Path ".\Src\KSociety.RabbitMQ.Install\Files\Otp"
   - ps: Invoke-WebRequest -Uri "https://download.sysinternals.com/files/Handle.zip" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Handle\Handle.zip"
   - ps: Expand-Archive -LiteralPath .\Src\KSociety.RabbitMQ.Install\Files\Handle\Handle.zip -DestinationPath .\Src\KSociety.RabbitMQ.Install\Files\Handle
   - ps: Invoke-WebRequest -Uri "https://github.com/erlang/otp/releases/download/OTP-24.1.3/otp_win32_24.1.3.exe" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Otp\otp_win32_24.1.3.exe"
