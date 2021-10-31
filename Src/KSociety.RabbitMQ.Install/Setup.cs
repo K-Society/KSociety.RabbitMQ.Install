@@ -7,8 +7,8 @@ namespace KSociety.RabbitMQ.Install
 {
     internal static class Setup
     {
-        private const string ErlangVersion = "24.0.3";
-        private const string RabbitMqVersion = "3.8.19";
+        private const string ErlangVersion = "24.1.3";
+        private const string RabbitMqVersion = "3.9.8";
 
         private const string Product = "RabbitMQ";
         private const string Manufacturer = "K-Society";
@@ -40,7 +40,7 @@ namespace KSociety.RabbitMQ.Install
                         MsiProperties = "UNINSTALLER_PATH=[UNINSTALLER_PATH]"
                     },
                     new MsiPackage(productMsiRabbitMqConf) { DisplayInternalUI = false, Compressed = true },
-                    new ExePackage(@".\Files\x64\otp_win64_" + ErlangVersion + ".exe")
+                    new ExePackage(@".\Files\Otp\otp_win64_" + ErlangVersion + ".exe")
                     {
                         Name = "Erlang OTP 24 (x64) - " + ErlangVersion,
                         InstallCommand = "/S",
@@ -51,7 +51,7 @@ namespace KSociety.RabbitMQ.Install
                         PerMachine = true,
                         Cache = false
                     },
-                    new ExePackage(@".\Files\x32\otp_win32_" + ErlangVersion + ".exe")
+                    new ExePackage(@".\Files\Otp\otp_win32_" + ErlangVersion + ".exe")
                     {
                         Name = "Erlang OTP 24 (x86) - " + ErlangVersion,
                         InstallCommand = "/S",
@@ -266,7 +266,7 @@ namespace KSociety.RabbitMQ.Install
 
         private static string BuildMsiRabbitMq()
         {
-            Environment.SetEnvironmentVariable("RabbitMQ", @".\Files" + @"\rabbitmq-server-windows-" + RabbitMqVersion + @"\rabbitmq_server-" + RabbitMqVersion);
+            Environment.SetEnvironmentVariable("RabbitMQ", @".\Files" + @"\rabbitmq-server-" + RabbitMqVersion);
             Environment.SetEnvironmentVariable("RabbitMQConf", @"Conf");
 
             #region [Feature]
