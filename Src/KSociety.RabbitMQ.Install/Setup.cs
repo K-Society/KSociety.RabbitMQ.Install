@@ -157,7 +157,7 @@ namespace KSociety.RabbitMQ.Install
 
         private static string BuildMsiHandle()
         {
-            Environment.SetEnvironmentVariable("Handle", @".\Files\Handle");
+            Environment.SetEnvironmentVariable("Handle", @"Files\Handle");
 
             #region [Feature]
 
@@ -266,7 +266,7 @@ namespace KSociety.RabbitMQ.Install
 
         private static string BuildMsiRabbitMq()
         {
-            Environment.SetEnvironmentVariable("RabbitMQ", @".\Files" + @"\rabbitmq-server-" + RabbitMqVersion);
+            Environment.SetEnvironmentVariable("RabbitMQ", @"Files" + @"\rabbitmq_server-" + RabbitMqVersion);
             Environment.SetEnvironmentVariable("RabbitMQConf", @"Conf");
 
             #region [Feature]
