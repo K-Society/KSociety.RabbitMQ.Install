@@ -39,7 +39,6 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -55,15 +54,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="KSociety.Base.InstallAction">
-      <Version>0.0.104</Version>
+      <Version>0.0.196</Version>
     </PackageReference>
     <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>3.4.220</Version>
+      <Version>3.4.244</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="WixSharp">
-      <Version>1.18.0</Version>
+      <Version>1.19.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
