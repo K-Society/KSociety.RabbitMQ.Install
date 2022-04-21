@@ -54,15 +54,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="KSociety.Base.InstallAction">
-      <Version>0.0.196</Version>
+      <Version>1.0.114</Version>
     </PackageReference>
     <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>3.4.244</Version>
+      <Version>3.4.255</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="WixSharp">
-      <Version>1.19.0</Version>
+      <Version>1.20.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
