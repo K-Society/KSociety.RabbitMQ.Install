@@ -7,8 +7,8 @@ namespace KSociety.RabbitMQ.Install
 {
     internal static class Setup
     {
-        private const string ErlangVersion = "24.1.3";
-        private const string RabbitMqVersion = "3.9.8";
+        private const string ErlangVersion = "24.3.3";
+        private const string RabbitMqVersion = "3.9.15";
 
         private const string Product = "RabbitMQ";
         private const string Manufacturer = "K-Society";
