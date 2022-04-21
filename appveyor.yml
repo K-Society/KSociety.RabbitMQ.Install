@@ -35,6 +35,7 @@ build_script:
   
 after_build:
  - ps: $installSystemPath = Resolve-Path .\Src\KSociety.RabbitMQ.Install\K-Society.RabbitMQ.exe; $array = [System.Diagnostics.FileVersionInfo]::GetVersionInfo("$installSystemPath").FileVersion -split "\."; $env:InstallSystemVersion = $array[0] + "." + $array[1] + "." + $array[2]; Write-Host "$env:InstallSystemVersion"
+ - ps: Compress-Archive -LiteralPath .\Src\KSociety.RabbitMQ.Install\K-Society.RabbitMQ.exe -DestinationPath .\Src\KSociety.RabbitMQ.Install\K-Society.RabbitMQ.zip -Force
 
 test: off
 
@@ -48,7 +49,7 @@ skip_branch_with_pr: true
 skip_tags: true
 
 artifacts:
-  - path: Src\KSociety.RabbitMQ.Install\K-Society.RabbitMQ.exe
+  - path: Src\KSociety.RabbitMQ.Install\K-Society.RabbitMQ.zip
     name: rabbitmqsysteminstaller
 
 deploy:
@@ -65,4 +66,3 @@ deploy:
     on:
       branch: master
       #appveyor_repo_tag: true
-
