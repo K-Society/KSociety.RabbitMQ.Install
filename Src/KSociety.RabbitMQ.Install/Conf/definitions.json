@@ -70,8 +70,8 @@
   ],
   "policies": [],
   "queues": [],
-  "rabbit_version": "3.8.19",
-  "rabbitmq_version": "3.8.19",
+  "rabbit_version": "3.9.15",
+  "rabbitmq_version": "3.9.15",
   "topic_permissions": [],
   "users": [
     {
