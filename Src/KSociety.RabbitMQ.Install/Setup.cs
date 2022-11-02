@@ -390,3 +390,10 @@ namespace KSociety.RabbitMQ.Install
         }// BuildMsiRegistryX64.
     }
 }
+
+//
+// The solution that worked for me was to edit the registry key to enable long path behaviour, setting the value to 1. This is a new opt-in feature for Windows 10
+// HKLM\SYSTEM\CurrentControlSet\Control\FileSystem LongPathsEnabled(Type: REG_DWORD)
+// I got this solution from a named section of the article that @james-hill posted.
+//     https://learn.microsoft.com/windows/desktop/FileIO/naming-a-file#maximum-path-length-limitation
+// 
