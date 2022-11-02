@@ -24,8 +24,8 @@ install:
   - ps: New-Item -ItemType Directory -Path ".\Src\KSociety.RabbitMQ.Install\Files\Otp"
   - ps: Invoke-WebRequest -Uri "https://download.sysinternals.com/files/Handle.zip" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Handle\Handle.zip"
   - ps: Expand-Archive -LiteralPath .\Src\KSociety.RabbitMQ.Install\Files\Handle\Handle.zip -DestinationPath .\Src\KSociety.RabbitMQ.Install\Files\Handle
-  - ps: Invoke-WebRequest -Uri "https://github.com/erlang/otp/releases/download/OTP-24.3.3/otp_win32_24.3.3.exe" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Otp\otp_win32_24.3.3.exe"
-  - ps: Invoke-WebRequest -Uri "https://github.com/erlang/otp/releases/download/OTP-24.3.3/otp_win64_24.3.3.exe" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Otp\otp_win64_24.3.3.exe"
+  - ps: Invoke-WebRequest -Uri "https://github.com/erlang/otp/releases/download/OTP-25.1.2/otp_win32_25.1.2.exe" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Otp\otp_win32_25.1.2.exe"
+  - ps: Invoke-WebRequest -Uri "https://github.com/erlang/otp/releases/download/OTP-25.1.2/otp_win64_25.1.2.exe" -OutFile ".\Src\KSociety.RabbitMQ.Install\Files\Otp\otp_win64_25.1.2.exe"
   
 build:
   verbosity: minimal #quiet|minimal|normal|detailed
