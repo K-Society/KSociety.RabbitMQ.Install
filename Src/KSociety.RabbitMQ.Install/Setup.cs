@@ -210,7 +210,7 @@ namespace KSociety.RabbitMQ.Install
 
             var project =
                 new Project("Erlang " + ErlangVersion + " X86",
-                    new EnvironmentVariable(erlang, "ERLANG_HOME", @"C:\Program Files\erl-" + ErlangVersion)
+                    new EnvironmentVariable(erlang, "ERLANG_HOME", @"C:\Program Files\Erlang OTP")
                     {
                         System = true
                     }
@@ -244,7 +244,7 @@ namespace KSociety.RabbitMQ.Install
 
             var project =
                 new Project("Erlang " + ErlangVersion + " X64",
-                    new EnvironmentVariable(erlang, "ERLANG_HOME", @"C:\Program Files\erl-" + ErlangVersion)
+                    new EnvironmentVariable(erlang, "ERLANG_HOME", @"C:\Program Files\Erlang OTP")
                     {
                         System = true
                     }
