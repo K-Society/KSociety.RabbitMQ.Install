@@ -7,8 +7,8 @@ namespace KSociety.RabbitMQ.Install
 {
     internal static class Setup
     {
-        private const string ErlangVersion = "24.3.3";
-        private const string RabbitMqVersion = "3.9.15";
+        private const string ErlangVersion = "25.1.2";
+        private const string RabbitMqVersion = "3.11.2";
 
         private const string Product = "RabbitMQ";
         private const string Manufacturer = "K-Society";
@@ -42,7 +42,7 @@ namespace KSociety.RabbitMQ.Install
                     new MsiPackage(productMsiRabbitMqConf) { DisplayInternalUI = false, Compressed = true },
                     new ExePackage(@".\Files\Otp\otp_win64_" + ErlangVersion + ".exe")
                     {
-                        Name = "Erlang OTP 24 (x64) - " + ErlangVersion,
+                        Name = "Erlang OTP 25 (x64) - " + ErlangVersion,
                         InstallCommand = "/S",
                         Permanent = true,
                         Vital = true,
@@ -53,7 +53,7 @@ namespace KSociety.RabbitMQ.Install
                     },
                     new ExePackage(@".\Files\Otp\otp_win32_" + ErlangVersion + ".exe")
                     {
-                        Name = "Erlang OTP 24 (x86) - " + ErlangVersion,
+                        Name = "Erlang OTP 25 (x86) - " + ErlangVersion,
                         InstallCommand = "/S",
                         Permanent = true,
                         Vital = true,
