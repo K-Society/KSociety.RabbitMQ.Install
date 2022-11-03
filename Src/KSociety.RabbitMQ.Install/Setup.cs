@@ -118,7 +118,9 @@ namespace KSociety.RabbitMQ.Install
 
         private static string BuildMsiRabbitMqConf()
         {
+            var commonApplicationData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             Environment.SetEnvironmentVariable("RabbitMQConf", @"Conf");
+            Environment.SetEnvironmentVariable("ProgramData", commonApplicationData);
 
             #region [Feature]
 
@@ -128,7 +130,7 @@ namespace KSociety.RabbitMQ.Install
             binaries.Children.Add(rabbitMqConf);
 
             #endregion
-
+            
             var project =
                 new Project("RabbitMQConf",
                     new Dir(new Id("PROGRAMDATA"), @"%ProgramData%\RabbitMQ",
