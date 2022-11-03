@@ -134,18 +134,18 @@ namespace KSociety.RabbitMQ.Install
                     new Dir(new Id("PROGRAMDATA"), Environment.ExpandEnvironmentVariables("%ProgramData%") + @"\RabbitMQ",
                         new File(rabbitMqConf, @"%RabbitMQConf%\definitions.json"),
                         new File(rabbitMqConf, @"%RabbitMQConf%\enabled_plugins"),
-                        new File(rabbitMqConf, @"%RabbitMQConf%\rabbitmq.conf",
-                            new EnvironmentVariable(rabbitMqConf, "RABBITMQ_CONFIG_FILE", @"%RabbitMQConf%\rabbitmq.conf")
-                            ),
+                        new File(rabbitMqConf, @"%RabbitMQConf%\rabbitmq.conf"),
+                        new EnvironmentVariable(rabbitMqConf, "RABBITMQ_CONFIG_FILE", @"%RabbitMQConf%\rabbitmq.conf"),
+                            
                         new EnvironmentVariable(rabbitMqConf, "RABBITMQ_BASE", Environment.ExpandEnvironmentVariables("%ProgramData%") + @"\RabbitMQ")
                         {
                             System = true
                         },
                         new Dir(new Id("CONFD"), @"conf.d",
                         new EnvironmentVariable(rabbitMqConf, "RABBITMQ_CONFIG_FILES", Environment.ExpandEnvironmentVariables("%ProgramData%") + @"\RabbitMQ\conf.d")
-                        {
-                            System = true
-                        })
+                                    {
+                                        System = true
+                                    })
                     ) // PROGRAMDATA.
                 )
                 {
