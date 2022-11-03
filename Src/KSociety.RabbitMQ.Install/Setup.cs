@@ -118,9 +118,7 @@ namespace KSociety.RabbitMQ.Install
 
         private static string BuildMsiRabbitMqConf()
         {
-            var commonApplicationData = Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData);
             Environment.SetEnvironmentVariable("RabbitMQConf", @"Conf");
-            Environment.SetEnvironmentVariable("ProgramData", commonApplicationData);
 
             #region [Feature]
 
@@ -133,18 +131,18 @@ namespace KSociety.RabbitMQ.Install
             
             var project =
                 new Project("RabbitMQConf",
-                    new Dir(new Id("PROGRAMDATA"), @"%ProgramData%\RabbitMQ",
+                    new Dir(new Id("PROGRAMDATA"), Environment.ExpandEnvironmentVariables("%ProgramData%") + @"\RabbitMQ",
                         new File(rabbitMqConf, @"%RabbitMQConf%\definitions.json"),
                         new File(rabbitMqConf, @"%RabbitMQConf%\enabled_plugins"),
                         new File(rabbitMqConf, @"%RabbitMQConf%\rabbitmq.conf",
                             new EnvironmentVariable(rabbitMqConf, "RABBITMQ_CONFIG_FILE", @"%RabbitMQConf%\rabbitmq.conf")
                             ),
-                        new EnvironmentVariable(rabbitMqConf, "RABBITMQ_BASE", @"%ProgramData%\RabbitMQ")
+                        new EnvironmentVariable(rabbitMqConf, "RABBITMQ_BASE", Environment.ExpandEnvironmentVariables("%ProgramData%") + @"\RabbitMQ")
                         {
                             System = true
                         },
                         new Dir(new Id("CONFD"), @"conf.d",
-                        new EnvironmentVariable(rabbitMqConf, "RABBITMQ_CONFIG_FILES", @"%ProgramData%\RabbitMQ\conf.d")
+                        new EnvironmentVariable(rabbitMqConf, "RABBITMQ_CONFIG_FILES", Environment.ExpandEnvironmentVariables("%ProgramData%") + @"\RabbitMQ\conf.d")
                         {
                             System = true
                         })
