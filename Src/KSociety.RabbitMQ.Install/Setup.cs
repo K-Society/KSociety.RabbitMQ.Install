@@ -171,12 +171,12 @@ namespace KSociety.RabbitMQ.Install
 
             var project =
                 new Project("Handle",
-                    new Dir(new Id("INSTALLDIR"), @"%ProgramFiles%\Handle",
+                    new Dir(new Id("INSTALLDIR"), Environment.ExpandEnvironmentVariables("%ProgramFiles%") + @"\Handle",
                         new File(handle, @"%Handle%\handle.exe"),
                         new File(handle, @"%Handle%\handle64.exe"),
                         new File(handle, @"%Handle%\handle64a.exe"),
 
-                        new EnvironmentVariable(handle, "Path", @"%ProgramFiles%\Handle\")
+                        new EnvironmentVariable(handle, "Path", Environment.ExpandEnvironmentVariables("%ProgramFiles%") + @"\Handle\")
                         {
                             System = true,
                             Part = EnvVarPart.last
