@@ -6,14 +6,14 @@
   "users": [
     {
       "name": "KSociety",
-      "password_hash": "f2ipV2OKhvQSz65ryh/4c6lBVoZD+3BlPPyXL8MN22FJ/MZe",
+      "password_hash": "Mmh676O5OE6GkNCBjPI6IiTRZd7LCzvgGG/kMZxd3smpY9ib",
       "hashing_algorithm": "rabbit_password_hashing_sha256",
       "tags": [ "administrator" ],
       "limits": {}
     },
     {
       "name": "guest",
-      "password_hash": "MpP4yzrgd7Zd4zY3X+ZKnw9N3glLW2m4sSPYonIKKc+Hb2dj",
+      "password_hash": "J2I0VjgsA5shUGAGmmZJj1HnF09q/EiQNeva2s6W3IIcnv5y",
       "hashing_algorithm": "rabbit_password_hashing_sha256",
       "tags": [ "administrator" ],
       "limits": {}
@@ -41,7 +41,7 @@
   "global_parameters": [
     {
       "name": "internal_cluster_id",
-      "value": "rabbitmq-cluster-id-CraeZO5tsJurFTmPBkyoEA"
+      "value": "rabbitmq-cluster-id-gtnjj0dTEgvHoFzPQOX-Nw"
     }
   ],
   "policies": [],
